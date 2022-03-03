@@ -1,7 +1,7 @@
 const Filter = () => {
     return ( 
-        <div class="overscroll-auto hover:overscroll-contain">
-            <div class=" flex mb-3 space-x-5 justify-center flex-wrap ">              
+        <div class="lg:flex lg:space-x-20 lg:justify-center overscroll-auto hover:overscroll-contain">
+            <div class="flex mb-3 space-x-5 justify-center flex-wrap ">              
                 <div class="form-control  max-w-xs">
                     <label class="label">
                         <span class="label-text">State</span>
@@ -47,8 +47,7 @@ const Filter = () => {
                         <option>Star Trek</option>
                     </select>
                 </div>  
-                </div>
-                <div class=" flex mb-5 space-x-5 justify-center flex-wrap">
+                <div class=" flex mb-3 space-x-5 justify-center flex-wrap">
                     <div class="form-control  max-w-xs">
                         <label class="label">
                             <span class="label-text">Category</span>
@@ -77,25 +76,20 @@ const Filter = () => {
                         <label class="label">
                         <span class="label-text">Bedrooms</span>
                         </label>
-                        <input type="number" class="input input-bordered w-20"></input>
+                        <input type="number" class="input input-bordered w-24"></input>
                     </div>
                 </div>  
-            
-            <div class=" flex mb-5 space-x-5 justify-center flex-wrap">
+            </div>
+            <div class=" flex mb-11 space-x-5 justify-center flex-wrap">
                 <label >
                 <span class="label-text">Residential</span>
                 </label>
-                <input type="checkbox" class="toggle toggle-sm" checked/>
+                <input type="checkbox" class="toggle toggle-base"/>
                                 <label >
                 <span class="label-text">Professional</span>
                 </label>
-                <div class="form-control">
-                    <label class="label cursor-pointer">
-                        <input type="checkbox" class="toggle" />
-                    </label>
-                </div>
+                <input type="checkbox" class="toggle toggle-base"/>
             </div>
-            
         </div> 
        
         );
