@@ -1,6 +1,6 @@
 const Product = () => {
     return ( 
-        <div class="grid place-content-center gap-10 md:flex flex-wrap md:py-40 ">
+        <div class="grid place-content-center gap-10 md:flex flex-wrap md:py-10 ">
             <div class="card w-96 bg-base-100 shadow-xl">
                 <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"/></figure>
                     <div class="card-body">
