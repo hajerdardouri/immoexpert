@@ -1,6 +1,6 @@
 import { Link } from "react-scroll"
 import React, { useEffect, useState } from "react";
-import {BsPlus} from 'react-icons/bs'
+import {AiFillHeart} from 'react-icons/ai'
 function NavBarMobile(){
     const [showSidebar, setShowSidebar] = useState(false);
     return(
@@ -38,7 +38,6 @@ function NavBarMobile(){
                                     <ul class="flex flex-center h-screen flex-shrink-0 drawer drawer-mobile menu py-20 px-3 overflow-y-auto bg-base-200  md:hidden">
                                         <Link href="/"><li><a>Home</a></li></Link>
                                         <Link href="/profile"><li><a>Profile</a></li></Link>
-                                        <Link href="/wishlist"><li><a>Wishlist</a></li></Link>
                                         
                                     </ul>
                                 </div>
@@ -52,9 +51,9 @@ function NavBarMobile(){
                 <div class="flex navbar-end pr-4">
                     <label for="my-modal" class="btn btn-outline  btn-sm modal-button">SIGN IN</label>
                 </div>
-                <div >
-                <button class="btn btn-sm btn-outline btn-square bg-base-100">
-                      <Link href="/addpost"><label><BsPlus size={30}/></label></Link>
+                <div>
+                    <button class="btn  modal-button btn-square bg-base-100">
+                        <Link href="/wishlist"><label ><AiFillHeart size={30}/></label></Link>
                     </button>
                 </div>
             </div>

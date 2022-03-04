@@ -23,11 +23,7 @@ function NavBarWeb(){
                                     <Link href="/wishlist"><label ><AiFillHeart size={30}/></label></Link>
                                 </button>
                             </div>
-                            <div >
-                                <button class="btn btn-square modal-button bg-base-100">
-                                    <Link href="/addpost"><label ><BsPlusSquareFill size={20}/></label></Link> 
-                                </button>
-                            </div>
+                    
                             <li tabindex="0">
                                 <a><IoLanguageOutline size={20}/>
                                 </a>
