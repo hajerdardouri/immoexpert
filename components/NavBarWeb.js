@@ -15,11 +15,6 @@ function NavBarWeb(){
                         <ul class="menu menu-horizontal p-0 space-x-5">
                             <div>
                                 <button class="btn  modal-button btn-square bg-base-100">
-                                    <Link href="/profile"><label ><BsFillPersonFill size={30}/></label></Link>  
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn  modal-button btn-square bg-base-100">
                                     <Link href="/wishlist"><label ><AiFillHeart size={30}/></label></Link>
                                 </button>
                             </div>

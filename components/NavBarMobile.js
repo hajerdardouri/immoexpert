@@ -37,7 +37,6 @@ function NavBarMobile(){
                                 <div class='flex-col-1 '>
                                     <ul class="flex flex-center h-screen flex-shrink-0 drawer drawer-mobile menu py-20 px-3 overflow-y-auto bg-base-200  md:hidden">
                                         <Link href="/"><li><a>Home</a></li></Link>
-                                        <Link href="/profile"><li><a>Profile</a></li></Link>
                                         
                                     </ul>
                                 </div>
