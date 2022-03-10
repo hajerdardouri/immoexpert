@@ -2,9 +2,8 @@ import Head from 'next/head'
 import Homelayout from '../Layouts/Homelayout'
 import { useRouter } from 'next/router'
 export default function Home() {
-  const router = useRouter()
-  const { locale } = router
-  
+  let router = useRouter()
+  let greeting = router.locale == 'en-us ? '
   return (
     <div>
       <Head>
