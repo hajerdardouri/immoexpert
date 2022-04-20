@@ -8,7 +8,6 @@ import Search from "../components/Search";
 import Signin from "../components/Signin";
 
 
-
 const Homelayout =({children}) => {
     return (
         <>
@@ -26,3 +25,4 @@ const Homelayout =({children}) => {
 }
 
 export default Homelayout
+
