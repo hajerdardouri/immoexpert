@@ -9,7 +9,7 @@ const Product = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('api/todos')
+        fetch('api/listing')
           .then((res) => res.json())
           .then((data) => {
             setData(data)
@@ -20,12 +20,11 @@ const Product = () => {
         if (isLoading) return <p>Loading...</p>
         if (!data) return <p>No profile data</p>    
     return ( 
-        <div>
-            <ul>
+        <div class="flex flex-wrap justify-center">
                 {data.map((item) => (
-                            <li key={item.id}>
-                                <div class=" flex gap-10 md:flex md:py-10 ">
-                                    <div class=" card w-96 bg-base-100 shadow-xl w-50">
+                            <div key={item.id}>
+                                <div class=" flex gap-10 md:flex px-10 md:py-10 ">
+                                    <div class=" card w-96 bg-base-100 shadow-xl w-30">
                                         <figure class="flex flex-wrap"><a>{item.photo}</a><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"/></figure>
                                         <div class=" card-body ">
                                             <h1 class="card-title">{item.title}</h1>
@@ -45,10 +44,8 @@ const Product = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </div>
                             ))}
-            </ul>
-                
         </div>
      );
 }
