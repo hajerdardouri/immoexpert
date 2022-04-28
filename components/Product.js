@@ -1,28 +1,27 @@
+import { useAtom } from "jotai"
 import { useState, useEffect } from "react"
 import {BsHeart} from 'react-icons/bs'
 import {FaBed} from 'react-icons/fa'
 import {FaBath} from 'react-icons/fa'
 import {MdPhotoSizeSelectSmall} from 'react-icons/md'
+import { searchListing } from "./store"
 const Product = () => {
-    const [data, setData] = useState(null)
-    const [isLoading, setLoading] = useState(false)
+    const [data] = useAtom(searchListing);
 
-    useEffect(() => {
-        setLoading(true)
-        fetch('api/listing')
-          .then((res) => res.json())
-          .then((data) => {
-            setData(data)
-            setLoading(false)
-          })
-      }, [])
-   
-        if (isLoading) return <p>Loading...</p>
-        if (!data) return <p>No profile data</p>    
+    // useEffect(() => {
+    //     setLoading(true)
+    //     fetch('api/listing')
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         setData(data)
+    //         setLoading(false)
+    //       })
+    //   }, [])
+   console.log(data);   
     return ( 
         <div class="flex flex-wrap justify-center">
-                {data.map((item) => (
-                            <div key={item.id}>
+                {data && data.map((item) => (
+                            <div key={item._id}>
                                 <div class=" flex gap-10 md:flex px-10 md:py-10 ">
                                     <div class=" card w-96 bg-base-100 shadow-xl w-30">
                                         <figure class="flex flex-wrap"><a>{item.photo}</a><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes"/></figure>

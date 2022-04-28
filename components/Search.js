@@ -1,6 +1,8 @@
+import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
+import { searchListing } from "./store";
 const Search = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useAtom(searchListing);
     const [searchTerm, setSearchTerm] = useState('')
     const [submitTerm, setSubmitTerm] = useState('')
     const handleClick = () => {
@@ -8,15 +10,19 @@ const Search = () => {
     }
 
     useEffect(() => {
-        fetch(`/api/search/?q=${submitTerm}`)
+        fetch(`api/listing/${submitTerm ? `?q=${submitTerm}` : '' }`)
+        .then((d) => d.json())
         .then(res => {
-            console.log(res)
+            console.log(res.data)
             setData(res.data)
         })
         .catch(err => {
             console.log(err)
         }) 
     }, [submitTerm])
+
+    console.log(data);
+
     return (  
         <div class="flex">        
             <div class="form-control px-10 mb-10 md:px-40 md:mb-10">
@@ -28,5 +34,4 @@ const Search = () => {
         </div>
     );
 }
- 
 export default Search;
