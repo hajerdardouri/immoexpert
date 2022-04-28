@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Homelayout from '../Layouts/Homelayout'
-import { useRouter } from 'next/router'
+import Head from "next/head";
+import Homelayout from "../Layouts/Homelayout";
+import { useRouter } from "next/router";
 
 export default function Home() {
-  let router = useRouter()
-  let greeting = router.locale == 'en-us ? '
+  let router = useRouter();
+  let greeting = router.locale == "en-us ? ";
   return (
     <div>
       <Head>
@@ -12,13 +12,9 @@ export default function Home() {
         <meta name="Keywords" content="pages" />
       </Head>
     </div>
-    
-  )
+  );
 }
 
 Home.getLayout = function getLayout(page) {
-  return (
-      <Homelayout>{page}</Homelayout>
-      
-  )
-}
+  return <Homelayout>{page}</Homelayout>;
+};
