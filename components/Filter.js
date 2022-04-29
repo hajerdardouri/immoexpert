@@ -1,15 +1,13 @@
 const Filter = () => {
   return (
-    <div class="lg:flex lg:space-x-10 lg:justify-center overscroll-auto hover:overscroll-contain">
-      <div class="flex mb-3 space-x-5 justify-center flex-wrap ">
-        <div class="form-control  max-w-xs">
-          <label class="label">
-            <span class="label-text">State</span>
+    <div className="lg:flex lg:space-x-10 lg:justify-center overscroll-auto hover:overscroll-contain">
+      <div className="flex mb-3 space-x-5 justify-center flex-wrap ">
+        <div className="form-control  max-w-xs">
+          <label className="label">
+            <span className="label-text">State</span>
           </label>
-          <select class="select select-bordered select-md w-24 ">
-            <option disabled selected>
-              Any
-            </option>
+          <select className="select select-bordered select-md w-24 ">
+            <option defaultValue={""}>Any</option>
             <option>Gafsa</option>
             <option>Beja</option>
             <option>Ben Arous</option>
@@ -35,14 +33,12 @@ const Filter = () => {
             <option>Tataouine</option>
           </select>
         </div>
-        <div class="form-control  max-w-xs">
-          <label class="label">
-            <span class="label-text">City</span>
+        <div className="form-control  max-w-xs">
+          <label className="label">
+            <span className="label-text">City</span>
           </label>
-          <select class="select select-bordered select-md w-24 ">
-            <option disabled selected>
-              Any
-            </option>
+          <select className="select select-bordered select-md w-24 ">
+            <option defaultValue={""}>Any</option>
             <option>Star Wars</option>
             <option>Harry Potter</option>
             <option>Lord of the Rings</option>
@@ -50,15 +46,13 @@ const Filter = () => {
             <option>Star Trek</option>
           </select>
         </div>
-        <div class=" flex mb-3 space-x-5 pr-5 justify-start flex-wrap">
-          <div class="form-control  max-w-xs">
-            <label class="label">
-              <span class="label-text">Category</span>
+        <div className=" flex mb-3 space-x-5 pr-5 justify-start flex-wrap">
+          <div className="form-control  max-w-xs">
+            <label className="label">
+              <span className="label-text">Category</span>
             </label>
-            <select class="select select-bordered select-md w-24 ">
-              <option disabled selected>
-                Any
-              </option>
+            <select className="select select-bordered select-md w-24 ">
+              <option defaultValue={""}>Any</option>
               <option>Apartement</option>
               <option>Bungalow</option>
               <option>Offices</option>
@@ -78,22 +72,22 @@ const Filter = () => {
             </select>
           </div>
           <div>
-            <label class="label">
-              <span class="label-text">Bedrooms</span>
+            <label className="label">
+              <span className="label-text">Bedrooms</span>
             </label>
-            <input type="number" class="input input-bordered w-24 "></input>
+            <input type="number" className="input input-bordered w-24 "></input>
           </div>
         </div>
       </div>
-      <div class=" flex mb-11 space-x-5 justify-center lg:py-12 flex-wrap">
+      <div className=" flex mb-11 space-x-5 justify-center lg:py-12 flex-wrap">
         <label>
-          <span class="label-text">Residential</span>
+          <span className="label-text">Residential</span>
         </label>
-        <input type="checkbox" class="toggle toggle-base" />
+        <input type="checkbox" className="toggle toggle-base" />
         <label>
-          <span class="label-text">Professional</span>
+          <span className="label-text">Professional</span>
         </label>
-        <input type="checkbox" class="toggle toggle-base" />
+        <input type="checkbox" className="toggle toggle-base" />
       </div>
     </div>
   );

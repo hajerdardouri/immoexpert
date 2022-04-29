@@ -1,35 +1,36 @@
-import Link from "next/Link";
-import { BsFillPersonFill } from "react-icons/bs";
-import { BsPlusSquareFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { IoLanguageOutline } from "react-icons/io5";
+import Link from "next/link";
+
 function NavBarWeb() {
   return (
     <div>
-      <div class=" mb-10 hidden md:block">
-        <nav class="navbar bg-base-100">
-          <div class="flex-1">
+      <div className=" mb-10 hidden md:block">
+        <nav className="navbar bg-base-100">
+          <div className="flex-1">
             <Link href="/">
-              <a class="btn btn-ghost normal-case text-xl">ImmoExpert</a>
+              <a className="btn btn-ghost normal-case text-xl">ImmoExpert</a>
             </Link>
           </div>
-          <div class="flex-col">
-            <ul class="menu menu-horizontal p-0 space-x-5">
+          <div className="flex-col">
+            <ul className="menu menu-horizontal p-0 space-x-5">
               <div>
-                <button class="btn  modal-button btn-square bg-base-100">
-                  <Link href="/wishlist">
-                    <label>
-                      <AiFillHeart size={30} />
-                    </label>
+                <button className="btn  modal-button btn-square bg-base-100">
+                  <Link href="/wishlist" passHref>
+                    <a>
+                      <label>
+                        <AiFillHeart size={30} />
+                      </label>
+                    </a>
                   </Link>
                 </button>
               </div>
 
-              <li tabindex="0">
+              <li tabIndex="0">
                 <a>
                   <IoLanguageOutline size={20} />
                 </a>
-                <ul class="p-2">
+                <ul className="p-2">
                   <li>
                     <a>french</a>
                   </li>
@@ -41,8 +42,11 @@ function NavBarWeb() {
                   </li>
                 </ul>
               </li>
-              <div class="navbar-start">
-                <label for="my-modal" class="btn btn-outline modal-button ">
+              <div className="navbar-start">
+                <label
+                  htmlFor="my-modal"
+                  className="btn btn-outline modal-button "
+                >
                   Sign In
                 </label>
               </div>
