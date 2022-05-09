@@ -1,4 +1,6 @@
 import { AiFillHeart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+
 import { IoLanguageOutline } from "react-icons/io5";
 import Link from "next/link";
 
@@ -14,6 +16,17 @@ function NavBarWeb() {
           </div>
           <div className="flex-col">
             <ul className="menu menu-horizontal p-0 space-x-5">
+            <div>
+              <button className="btn  modal-button btn-square bg-base-100">
+                  <Link href="/profile" passHref>
+                    <a>
+                      <label>
+                        <CgProfile size={30} />
+                      </label>
+                    </a>
+                  </Link>
+                </button>
+              </div>
               <div>
                 <button className="btn  modal-button btn-square bg-base-100">
                   <Link href="/wishlist" passHref>
@@ -25,6 +38,7 @@ function NavBarWeb() {
                   </Link>
                 </button>
               </div>
+        
 
               <li tabIndex="0">
                 <a>
