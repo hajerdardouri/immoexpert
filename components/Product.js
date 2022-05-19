@@ -6,6 +6,7 @@ import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 import { MdPhotoSizeSelectSmall } from "react-icons/md";
 import { searchListing } from "./store";
+import Link from "next/link";
 const Product = () => {
   const [data] = useAtom(searchListing);
   console.log(data);
@@ -38,10 +39,14 @@ const Product = () => {
                   </div>
                   <div className="justify-end card-actions">
                     <p>{item.price}</p>
-                    <button>
-                      <label className="bg-base-600 hover:bg-base-700">
-                        <BsHeart size={20} />
-                      </label>
+                    <button className="btn btn-ghost btn-circle">
+                      <Link href="/wishlist">
+                        <a>
+                          <label className="bg-base-600 hover:bg-base-700">
+                            <BsHeart size={20} />
+                          </label>
+                        </a>
+                      </Link>
                     </button>
                   </div>
                 </div>

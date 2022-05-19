@@ -16,8 +16,8 @@ function NavBarWeb() {
           </div>
           <div className="flex-col">
             <ul className="menu menu-horizontal p-0 space-x-5">
-            <div>
-              <button className="btn  modal-button btn-square bg-base-100">
+              <div>
+                <button className="btn  modal-button btn-square bg-base-100">
                   <Link href="/profile" passHref>
                     <a>
                       <label>
@@ -38,7 +38,6 @@ function NavBarWeb() {
                   </Link>
                 </button>
               </div>
-        
 
               <li tabIndex="0">
                 <a>
@@ -62,6 +61,14 @@ function NavBarWeb() {
                   className="btn btn-outline modal-button "
                 >
                   Sign In
+                </label>
+              </div>
+              <div className="navbar-start">
+                <label
+                  htmlFor="my-modal-5"
+                  className="btn btn-outline modal-button "
+                >
+                  Sign Up
                 </label>
               </div>
             </ul>

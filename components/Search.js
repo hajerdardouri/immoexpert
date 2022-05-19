@@ -19,12 +19,12 @@ const Search = () => {
   }, [submitTerm]);
 
   return (
-    <div class="flex">
-      <div class="form-control px-10 mb-10 md:px-40 md:mb-10">
+    <div className="flex">
+      <div className="form-control px-10 mb-10 md:px-40 md:mb-10">
         <input
           type="text"
           placeholder="Search"
-          class="input input-bordered"
+          className="input input-bordered"
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}
@@ -32,7 +32,7 @@ const Search = () => {
       </div>
       <div>
         <button
-          class="btn btn-outline  btn-sm modal-button"
+          className="btn btn-outline  btn-sm modal-button"
           onClick={handleClick}
         >
           Search

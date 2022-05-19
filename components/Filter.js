@@ -1,4 +1,22 @@
+import { useAtom } from "jotai";
+import { useEffect, useState } from "react";
+import { filterListing } from "./store";
 const Filter = () => {
+  const [FilterListingData, setFilterListingData] = useAtom(filterListing);
+  const [filterTerm, setFilterTerm] = useState("");
+  const [submitTerm, setSubmitTerm] = useState("");
+  const handleClick = () => {
+    setSubmitTerm(filterTerm);
+  };
+
+  useEffect(() => {
+    fetch(`api/listing/${submitTerm ? `?f=${submitTerm}` : ""}`)
+      .then((stream) => stream.json())
+      .then((data) => setFilterListingData(data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [submitTerm]);
   return (
     <div className="lg:flex lg:space-x-10 lg:justify-center overscroll-auto hover:overscroll-contain">
       <div className="flex mb-3 space-x-5 justify-center flex-wrap ">
@@ -6,7 +24,13 @@ const Filter = () => {
           <label className="label">
             <span className="label-text">State</span>
           </label>
-          <select className="select select-bordered select-md w-24 ">
+          <select
+            className="select select-bordered select-md w-24 "
+            onClick={handleClick}
+            onChange={(event) => {
+              setFilterTerm(event.target.value);
+            }}
+          >
             <option defaultValue={""}>Any</option>
             <option>Gafsa</option>
             <option>Beja</option>
@@ -26,7 +50,7 @@ const Filter = () => {
             <option>Siliana</option>
             <option>Sousse</option>
             <option>Tozeur</option>
-            <option>Tunis</option>
+            <option>tunis</option>
             <option>Zaghouan</option>
             <option>Medenine</option>
             <option>Manouba</option>
@@ -75,7 +99,14 @@ const Filter = () => {
             <label className="label">
               <span className="label-text">Bedrooms</span>
             </label>
-            <input type="number" className="input input-bordered w-24 "></input>
+            <input
+              type="number"
+              className="input input-bordered w-24 "
+              onClick={handleClick}
+              onChange={(event) => {
+                setFilterTerm(event.target.value);
+              }}
+            ></input>
           </div>
         </div>
       </div>

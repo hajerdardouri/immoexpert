@@ -88,6 +88,14 @@ function NavBarMobile() {
           SIGN IN
         </label>
       </div>
+      <div className="navbar-start">
+                <label
+                  htmlFor="my-modal-5"
+                  className="btn btn-outline btn-sm modal-button "
+                >
+                  Sign Up
+                </label>
+              </div>
       <div>
         <button className="btn  modal-button btn-square bg-base-100">
           <Link href="/wishlist">
