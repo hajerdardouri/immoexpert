@@ -13,7 +13,10 @@ const Signup = () => {
       body: JSON.stringify(data),
     })
       .then(async (response) => {
-        console.log(response);
+        let resData = await response.json();
+        console.log(resData);
+        localStorage.setItem('token', 'Bearer ' + resData.token);
+      
       })
       .catch(async (err) => {
         console.error(err);

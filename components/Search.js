@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { searchListing } from "./store";
 const Search = () => {
-  const [searchListingData, setSearchListingData] = useAtom(searchListing);
+  const [ , setSearchListingData] = useAtom(searchListing);
   const [searchTerm, setSearchTerm] = useState("");
   const [submitTerm, setSubmitTerm] = useState("");
   const handleClick = () => {

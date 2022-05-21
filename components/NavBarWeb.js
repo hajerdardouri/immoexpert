@@ -1,6 +1,6 @@
 import { AiFillHeart } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-
+import {AiOutlinePlus} from "react-icons/ai"
 import { IoLanguageOutline } from "react-icons/io5";
 import Link from "next/link";
 
@@ -70,6 +70,17 @@ function NavBarWeb() {
                 >
                   Sign Up
                 </label>
+              </div>
+              <div>
+                <button className="btn  btn-cercle bg-base-100">
+                  <Link href="/addlisting" passHref>
+                    <a>
+                      <label>
+                        <AiOutlinePlus size={30} />
+                      </label>
+                    </a>
+                  </Link>
+                </button>
               </div>
             </ul>
           </div>

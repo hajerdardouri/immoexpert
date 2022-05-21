@@ -1,21 +1,23 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-
 const Signin = () => {
   const { register, handleSubmit } = useForm();
-const [passwordShown] = useState(false);
+  const [passwordShown] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
     fetch("api/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        
       },
       body: JSON.stringify(data),
     })
       .then(async (response) => {
-        console.log(response);
+        let resData = await response.json();
+        console.log(resData);
+        localStorage.setItem('token', 'Bearer ' + resData.token);
       })
       .catch(async (err) => {
         console.error(err);
@@ -23,57 +25,57 @@ const [passwordShown] = useState(false);
   };
 
   return (
-      <div>
-        <input type="checkbox" id="my-modal" className="modal-toggle " />
-        <div className="modal py-60">
-          <div className=" card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
+    <div>
+      <input type="checkbox" id="my-modal" className="modal-toggle " />
+      <div className="modal py-60">
+        <div className=" card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Name"
+                className="input input-bordered"
+                {...register("username")}
+                onTextChange={(value) => setValue("lastChange", value)}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                placeholder="Password"
+                name="password"
+                type={passwordShown ? "text" : "password"}
+                {...register("password")}
+                className="input input-bordered"
+                onTextChange={(value) => setValue("lastChange", value)}
+              />
+              <label className="label">
+                <a href="#" className="label-text-alt link link-hover">
+                  Forgot password?
+                </a>
+              </label>
+            </div>
+            <div className="form-control mt-6 modal-action">
+              <button
+                className="my-modal"
+                type="submit"
+                onClick={handleSubmit(onSubmit)}
+              >
+                <label htmlFor="my-modal" className="btn btn-base">
+                  Submit
                 </label>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="input input-bordered"
-                  {...register("username")}
-                  onTextChange={(value) => setValue("lastChange", value)}
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  placeholder="Password"
-                  name="password"
-                  type={passwordShown ? "text" : "password"}
-                  {...register("password")}
-                  className="input input-bordered"
-                  onTextChange={(value) => setValue("lastChange", value)}
-                />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
-              </div>
-              <div className="form-control mt-6 modal-action">
-                <button
-                  className=""
-                  type="submit"
-                  onClick={handleSubmit(onSubmit)}
-                >
-                  <label htmlFor="my-modal" className="btn btn-base">
-                    Submit
-                  </label>
-                </button>
-              </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
-        );
+    </div>
+  );
 };
 
 export default Signin;

@@ -1,22 +1,19 @@
 import Footer from "../components/Footer";
-import Loved from "../components/Loved";
 import NavBarMobile from "../components/NavBarMobile";
 import NavBarWeb from "../components/NavBarWeb";
-import Product from "../components/Product";
-import Profile from "../pages/profile";
+import ProductDetails from "../components/ProductDetails";
 
-const Wishlistlayout = ({ children }) => {
+
+const ProfileLayout = ({ children }) => {
   return (
     <>
       <NavBarMobile />
       <NavBarWeb />
-      <Profile />
-      <Loved />
-      <Product />
+      <ProductDetails />
       <main>{children}</main>
       <Footer />
     </>
   );
 };
 
-export default Wishlistlayout;
+export default ProfileLayout;
