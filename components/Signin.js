@@ -1,27 +1,29 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 const Signin = () => {
   const { register, handleSubmit } = useForm();
   const [passwordShown] = useState(false);
+  const router = useRouter();
   const onSubmit = (data) => {
     console.log(data);
     fetch("api/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        
       },
       body: JSON.stringify(data),
     })
       .then(async (response) => {
         let resData = await response.json();
         console.log(resData);
-        localStorage.setItem('token', 'Bearer ' + resData.token);
+        localStorage.setItem("token", "Bearer " + resData.token);
       })
       .catch(async (err) => {
         console.error(err);
       });
+    router.push("/profile");
   };
 
   return (
@@ -62,13 +64,12 @@ const Signin = () => {
             </div>
             <div className="form-control mt-6 modal-action">
               <button
-                className="my-modal"
+                className="my-modal btn btn-base"
                 type="submit"
                 onClick={handleSubmit(onSubmit)}
+                href="/profile"
               >
-                <label htmlFor="my-modal" className="btn btn-base">
-                  Submit
-                </label>
+                Signin
               </button>
             </div>
           </div>

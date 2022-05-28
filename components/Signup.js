@@ -1,8 +1,12 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+
 const Signup = () => {
   const { register, handleSubmit } = useForm();
   const [passwordShown] = useState(false);
+  const router = useRouter();
+
   const onSubmit = (data) => {
     console.log(data);
     fetch("api/create_user", {
@@ -15,12 +19,12 @@ const Signup = () => {
       .then(async (response) => {
         let resData = await response.json();
         console.log(resData);
-        localStorage.setItem('token', 'Bearer ' + resData.token);
-      
+        localStorage.setItem("token", "Bearer " + resData.token);
       })
       .catch(async (err) => {
         console.error(err);
       });
+    router.push("/index");
   };
 
   return (
@@ -86,13 +90,11 @@ const Signup = () => {
               </div>
               <div className="form-control mt-6 modal-action">
                 <button
-                  className="my-modal-5"
-                  type="submit"
+                  className="my-modal-5 btn btn-base"
                   onClick={handleSubmit(onSubmit)}
+                  href="/index"
                 >
-                  <label htmlFor="my-modal-5" className="btn btn-base">
-                    Sign up
-                  </label>
+                  Sign up
                 </button>
               </div>
             </div>

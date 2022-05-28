@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ProductDetails from "../components/ProductDetails";
+import ProductDetails from "../../components/ProductDetails";
 export default function Profile() {
   return (
     <div>

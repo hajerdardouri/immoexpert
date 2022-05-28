@@ -4,8 +4,8 @@ const Logout = () => {
   };
 
   return (
-    <div>
-      <button className="btn btn-base" onClick={logOut}>
+    <div className="flex px-60 mb-20 w-12">
+      <button className="btn btn-base  " onClick={logOut}>
         Logout
       </button>
     </div>

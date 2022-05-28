@@ -1,3 +1,4 @@
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import NavBarMobile from "../components/NavBarMobile";
 import NavBarWeb from "../components/NavBarWeb";
@@ -10,6 +11,7 @@ const ProfileLayout = ({ children }) => {
       <NavBarMobile />
       <NavBarWeb />
       <ProductDetails />
+      <Contact />
       <main>{children}</main>
       <Footer />
     </>
