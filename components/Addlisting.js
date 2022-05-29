@@ -1,10 +1,38 @@
 import { useForm } from "react-hook-form";
 import { BiImageAdd } from "react-icons/bi";
 const Addlisting = () => {
+  const [image, setImage] = useState (null);
+  const [createObjectURL, setCreateObjectURL] = useState(null);
+  const uploadToClient = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      const i = event.target.files[0];
+      setImage(i);
+      setCreateObjectURL(URL.createObjectURL(i));
+    }
+  };
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const body = new FormData();
+
+  const onSubmit = async (data) => {
     console.log(data, parseInt(data.bednum));
-    fetch("api/create_listing", {
+    body.append("file", image);
+     await fetch("http://0.0.0.0:8082/api/upload", {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "multipart/form-data",
+        "content-type": "multipart/form-data; boundary=---011000010111000001101001"
+      }
+    })
+    .then(response => {
+      console.log(response);
+      let resData = await response.json();
+      setImage(resData);
+      console.log(resData);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+    await fetch("api/create_listing", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,10 +58,11 @@ const Addlisting = () => {
   return (
     <div className="grid justify-center ">
       <div>
-        <button className="justify-cente">
-          <label>
+      <img src={createObjectURL} />
+        <input type="file" name="myImage" onChange={uploadToClient} />
+        <button className="justify-cente"  type="submit"
+          onClick={uploadToServer}>
             <BiImageAdd size={100} />
-          </label>
         </button>
       </div>
       <div class="form-control w-full max-w-xs">
