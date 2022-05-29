@@ -7,24 +7,21 @@ const Signup = () => {
   const [passwordShown] = useState(false);
   const router = useRouter();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    fetch("api/create_user", {
+    const response = await fetch("api/create_user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-      .then(async (response) => {
-        let resData = await response.json();
-        console.log(resData);
-        localStorage.setItem("token", "Bearer " + resData.token);
-      })
-      .catch(async (err) => {
-        console.error(err);
-      });
-    router.push("/index");
+    });
+
+    let resData = await response.json();
+    console.log(resData);
+    localStorage.setItem("token", "Bearer " + resData.token);
+    
+    router.push("/profile");
   };
 
   return (
@@ -92,7 +89,6 @@ const Signup = () => {
                 <button
                   className="my-modal-5 btn btn-base"
                   onClick={handleSubmit(onSubmit)}
-                  href="/index"
                 >
                   Sign up
                 </button>

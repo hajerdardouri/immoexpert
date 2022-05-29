@@ -4,6 +4,8 @@ import { ImLocation } from "react-icons/im";
 import { FaBed } from "react-icons/fa";
 import { MdPhotoSizeSelectSmall } from "react-icons/md";
 import { FaBath } from "react-icons/fa";
+import Contact from './Contact';
+
 const ProductDetails = () => {
   const router = useRouter();
   const [product, updateproduct] = useState();
@@ -30,11 +32,12 @@ const ProductDetails = () => {
 
   return (
     <div>
+
       <div className="hero min-h-screen bg-base-200">
         <div className=" flex hero-content flex-col lg:flex-row">
           <div>
             <img
-              src="https://api.lorem.space/image/movie?w=260&h=400"
+              src={`http://localhost:8082/api/uploads/${product?.photo}`}
               className="max-w-sm rounded-lg shadow-2xl"
             />
           </div>
@@ -67,13 +70,14 @@ const ProductDetails = () => {
               <h2 className="text-md">TND</h2>
             </div>
             <div>
-              <button
-              htmlFor="my-modal-6"
+              <label
+                htmlFor="my-modal-6"
                 className="btn btn-outline modal-button "
                 
               >
                 Contact Agency
-              </button>
+              </label>
+              <Contact />
             </div>
           </div>
         </div>

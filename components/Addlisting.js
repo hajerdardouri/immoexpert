@@ -1,7 +1,9 @@
+import {useState} from 'react';
 import { useForm } from "react-hook-form";
 import { BiImageAdd } from "react-icons/bi";
+
 const Addlisting = () => {
-  const [image, setImage] = useState (null);
+  const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -10,28 +12,22 @@ const Addlisting = () => {
       setCreateObjectURL(URL.createObjectURL(i));
     }
   };
+
   const { register, handleSubmit } = useForm();
-  const body = new FormData();
 
   const onSubmit = async (data) => {
     console.log(data, parseInt(data.bednum));
+
+    const body = new FormData();
     body.append("file", image);
-     await fetch("http://0.0.0.0:8082/api/upload", {
+
+    let res = await fetch("http://0.0.0.0:8082/api/upload", {
       "method": "POST",
-      "headers": {
-        "Content-Type": "multipart/form-data",
-        "content-type": "multipart/form-data; boundary=---011000010111000001101001"
-      }
-    })
-    .then(response => {
-      console.log(response);
-      let resData = await response.json();
-      setImage(resData);
-      console.log(resData);
-    })
-    .catch(err => {
-      console.error(err);
+      body
     });
+
+    let resBody = await res.json();
+
     await fetch("api/create_listing", {
       method: "POST",
       headers: {
@@ -39,7 +35,7 @@ const Addlisting = () => {
         Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        photo: data.photo,
+        photo: resBody.files[0].link,
         title: data.title,
         location: data.location,
         bednum: parseInt(data.bednum),
@@ -55,24 +51,21 @@ const Addlisting = () => {
         console.error(err);
       });
   };
+
   return (
     <div className="grid justify-center ">
       <div>
-      <img src={createObjectURL} />
+        <img src={createObjectURL} className="max-w-[100px]" />
         <input type="file" name="myImage" onChange={uploadToClient} />
-        <button className="justify-cente"  type="submit"
-          onClick={uploadToServer}>
-            <BiImageAdd size={100} />
-        </button>
       </div>
-      <div class="form-control w-full max-w-xs">
-        <label class="label">
-          <span class="label-text">Listing Title</span>
+      <div className="form-control w-full max-w-xs">
+        <label className="label">
+          <span className="label-text">Listing Title</span>
         </label>
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
           {...register("title")}
           onTextChange={(value) => setValue("lastChange", value)}
         />
@@ -148,14 +141,14 @@ const Addlisting = () => {
         </div>
       </div>
 
-      <div class="form-control w-full max-w-xs">
-        <label class="label">
-          <span class="label-text">Price</span>
+      <div className="form-control w-full max-w-xs">
+        <label className="label">
+          <span className="label-text">Price</span>
         </label>
         <input
           type="text"
           placeholder="Type here"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
           {...register("price")}
           onTextChange={(value) => setValue("lastChange", value)}
         />

@@ -5,7 +5,7 @@ import NavBarWeb from "../components/NavBarWeb";
 import Product from "../components/Product";
 import Search from "../components/Search";
 import Signin from "../components/Signin";
-import Signup from "../components/signup";
+import Signup from "../components/Signup";
 
 const Homelayout = ({ children }) => {
   return (

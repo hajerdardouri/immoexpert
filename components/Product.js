@@ -22,7 +22,7 @@ const Product = () => {
                   <div className=" flex gap-10 md:flex px-10 md:py-10 ">
                     <div className=" card w-96 bg-base-100 shadow-xl w-30">
                       <figure className="flex flex-wrap">
-                        <a>{item.photo}</a>
+                        <img src={`http://localhost:8082/api/uploads/${item.photo}`} />
                       </figure>
                       <div className=" card-body ">
                         <h1 className="card-title">{item.title}</h1>
