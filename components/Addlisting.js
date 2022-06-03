@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {useState} from 'react';
 import { useForm } from "react-hook-form";
 import { BiImageAdd } from "react-icons/bi";
@@ -5,6 +6,7 @@ import { BiImageAdd } from "react-icons/bi";
 const Addlisting = () => {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
+  const router = useRouter();
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
       const i = event.target.files[0];
@@ -46,12 +48,14 @@ const Addlisting = () => {
     })
       .then(async (response) => {
         console.log(response);
+        router.push("/");
       })
       .catch(async (err) => {
         console.error(err);
       });
+      
   };
-
+  
   return (
     <div className="grid justify-center ">
       <div>

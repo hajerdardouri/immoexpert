@@ -3,19 +3,24 @@ import Footer from "../components/Footer";
 import NavBarMobile from "../components/NavBarMobile";
 import NavBarWeb from "../components/NavBarWeb";
 import ProductDetails from "../components/ProductDetails";
+import Signin from "../components/Signin";
+import Signup from "../components/Signup";
 
 
-const ProfileLayout = ({ children }) => {
+
+const Productdetailslayout = ({ children }) => {
   return (
     <>
       <NavBarMobile />
       <NavBarWeb />
-      <ProductDetails />
+      <Signin />
+      <Signup />
       <Contact />
+      <ProductDetails />
       <main>{children}</main>
       <Footer />
     </>
   );
 };
 
-export default ProfileLayout;
+export default Productdetailslayout;

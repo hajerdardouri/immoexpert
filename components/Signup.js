@@ -7,21 +7,24 @@ const Signup = () => {
   const [passwordShown] = useState(false);
   const router = useRouter();
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     console.log(data);
-    const response = await fetch("api/create_user", {
+    fetch("api/create_user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
-
-    let resData = await response.json();
-    console.log(resData);
-    localStorage.setItem("token", "Bearer " + resData.token);
-    
-    router.push("/profile");
+    })
+      .then(async (response) => {
+        let resData = await response.json();
+        console.log(resData);
+        localStorage.setItem("token", "Bearer " + resData.token);
+      })
+      .catch(async (err) => {
+        console.error(err);
+      });
+    router.push("/index");
   };
 
   return (
@@ -67,11 +70,6 @@ const Signup = () => {
                   className="input input-bordered"
                   onTextChange={(value) => setValue("lastChange", value)}
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div>
                 <select
@@ -89,6 +87,7 @@ const Signup = () => {
                 <button
                   className="my-modal-5 btn btn-base"
                   onClick={handleSubmit(onSubmit)}
+                  href="/index"
                 >
                   Sign up
                 </button>

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import ProductDetails from "../../components/ProductDetails";
+import Productdetailslayout from "../../Layouts/Productdetailslayout";
 export default function Profile() {
   return (
     <div>
@@ -12,5 +13,5 @@ export default function Profile() {
 }
 
 Profile.getLayout = function getLayout(page) {
-  return <ProductDetails>{page}</ProductDetails>;
+  return <Productdetailslayout>{page}</Productdetailslayout>;
 };

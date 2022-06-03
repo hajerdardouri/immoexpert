@@ -5,11 +5,28 @@ import { BsHeart } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 import { MdPhotoSizeSelectSmall } from "react-icons/md";
-import { searchListing } from "./store";
+import { filterListing } from "./store";
 import Link from "next/link";
-const Product = () => {
-  const [data] = useAtom(searchListing);
+const Product = async () => {
+  const [data] = useAtom(filterListing);
   console.log(data);
+  await fetch("api/wishlist", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token"),
+    },
+    body: JSON.stringify({
+    
+    }),
+  })
+    .then(async (response) => {
+      console.log(response);
+      router.push("/");
+    })
+    .catch(async (err) => {
+      console.error(err);
+    }); 
 
   return (
     <div>

@@ -32,8 +32,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-100">
         <div className=" flex hero-content flex-col lg:flex-row">
           <div>
             <img

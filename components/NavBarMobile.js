@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
+import {CgProfile} from 'react-icons/cg'
+import {AiOutlinePlus} from 'react-icons/ai'
 function NavBarMobile() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
@@ -69,6 +71,33 @@ function NavBarMobile() {
                     <a>Home</a>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/wishlist">
+                    <a>
+                      <label>
+                        <AiFillHeart size={30} />
+                      </label>Wishlist
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/profile" passHref>
+                    <a>
+                      <label>
+                        <CgProfile size={30} />
+                      </label>Profile
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                <Link href="/addlisting" passHref>
+                    <a>
+                      <label>
+                        <AiOutlinePlus size={30} />
+                      </label>Add listing
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -88,7 +117,7 @@ function NavBarMobile() {
           SIGN IN
         </label>
       </div>
-      <div className="navbar-start">
+      <div className="navbar-end">
                 <label
                   htmlFor="my-modal-5"
                   className="btn btn-outline btn-sm modal-button "
@@ -97,15 +126,6 @@ function NavBarMobile() {
                 </label>
               </div>
       <div>
-        <button className="btn  modal-button btn-square bg-base-100">
-          <Link href="/wishlist">
-            <a>
-              <label>
-                <AiFillHeart size={30} />
-              </label>
-            </a>
-          </Link>
-        </button>
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import NavBarMobile from "../components/NavBarMobile";
 import NavBarWeb from "../components/NavBarWeb";
 import Product from "../components/Product";
-import Search from "../components/Search";
 import Signin from "../components/Signin";
 import Signup from "../components/Signup";
 
@@ -14,7 +13,6 @@ const Homelayout = ({ children }) => {
       <NavBarMobile />
       <Signup />
       <Signin />
-      <Search />
       <Filter />
       <Product />
       <main>{children}</main>
