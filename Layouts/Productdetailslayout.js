@@ -1,4 +1,3 @@
-import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import NavBarMobile from "../components/NavBarMobile";
 import NavBarWeb from "../components/NavBarWeb";
@@ -15,7 +14,6 @@ const Productdetailslayout = ({ children }) => {
       <NavBarWeb />
       <Signin />
       <Signup />
-      <Contact />
       <ProductDetails />
       <main>{children}</main>
       <Footer />

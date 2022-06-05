@@ -23,7 +23,7 @@ const Addlisting = () => {
     const body = new FormData();
     body.append("file", image);
 
-    let res = await fetch("http://0.0.0.0:8082/api/upload", {
+    let res = await fetch("api/upload", {
       "method": "POST",
       body
     });

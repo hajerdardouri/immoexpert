@@ -12,7 +12,6 @@ const Homelayout = ({ children }) => {
     <>
       <NavBarWeb />
       <NavBarMobile />
-      <Profile/>
       <Signin />
       <Signup />
       <Addlisting/>

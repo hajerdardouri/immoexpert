@@ -1,15 +1,9 @@
 import Head from "next/head";
+import Loved from "../components/Loved";
 import Wishlistlayout from "../Layouts/wishlistlayout";
 
 export default function Wishlist() {
-  return (
-    <div>
-      <Head>
-        <title>ImmoExpert | Wishlist</title>
-        <meta name="Keywords" content="pages" />
-      </Head>
-    </div>
-  );
+  return <Loved />;
 }
 
 Wishlist.getLayout = function getLayout(page) {

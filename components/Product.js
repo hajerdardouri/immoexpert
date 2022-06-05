@@ -1,33 +1,36 @@
 import { useAtom } from "jotai";
-import Image from "next/image";
-import { useState, useEffect, useRouter } from "react";
 import { BsHeart } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 import { MdPhotoSizeSelectSmall } from "react-icons/md";
 import { filterListing } from "./store";
 import Link from "next/link";
-const Product = async () => {
+import { useRouter } from "next/router";
+const Product = () => {
   const [data] = useAtom(filterListing);
   console.log(data);
-  await fetch("api/wishlist", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: localStorage.getItem("token"),
-    },
-    body: JSON.stringify({
-    
-    }),
-  })
-    .then(async (response) => {
-      console.log(response);
-      router.push("/");
-    })
-    .catch(async (err) => {
-      console.error(err);
-    }); 
 
+  const router = useRouter();
+
+  const saveWishlist = async (wishlistId) => {
+    await fetch("api/wishlist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        listing_id: wishlistId,
+      }),
+    })
+      .then(async (response) => {
+        console.log(response);
+        router.push("/wishlist");
+      })
+      .catch(async (err) => {
+        console.error(err);
+      });
+  };
   return (
     <div>
       <div className="flex flex-wrap justify-center">
@@ -39,7 +42,9 @@ const Product = async () => {
                   <div className=" flex gap-10 md:flex px-10 md:py-10 ">
                     <div className=" card w-96 bg-base-100 shadow-xl w-30">
                       <figure className="flex flex-wrap">
-                        <img src={`http://localhost:8082/api/uploads/${item.photo}`} />
+                        <img
+                          src={`http://localhost:8082/api/uploads/${item.photo}`}
+                        />
                       </figure>
                       <div className=" card-body ">
                         <h1 className="card-title">{item.title}</h1>
@@ -60,14 +65,13 @@ const Product = async () => {
                         </div>
                         <div className="justify-end card-actions">
                           <p>{item.price}</p>
-                          <button className="btn btn-ghost btn-circle">
-                            <Link href="/wishlist">
-                              <a>
-                                <label className="bg-base-600 hover:bg-base-700">
-                                  <BsHeart size={20} />
-                                </label>
-                              </a>
-                            </Link>
+                          <button
+                            className="btn btn-ghost btn-circle"
+                            onClick={() => saveWishlist(item._id.$oid)}
+                          >
+                            <label className="bg-base-600 hover:bg-base-700">
+                              <BsHeart size={20} />
+                            </label>
                           </button>
                         </div>
                       </div>

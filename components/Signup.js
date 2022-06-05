@@ -7,7 +7,7 @@ const Signup = () => {
   const [passwordShown] = useState(false);
   const router = useRouter();
 
-  const onSubmit = (data) => {
+  const signUp = (data) => {
     console.log(data);
     fetch("api/create_user", {
       method: "POST",
@@ -24,7 +24,7 @@ const Signup = () => {
       .catch(async (err) => {
         console.error(err);
       });
-    router.push("/index");
+    router.push("/profile");
   };
 
   return (
@@ -64,7 +64,6 @@ const Signup = () => {
                 </label>
                 <input
                   placeholder="Password"
-                  name="password"
                   type={passwordShown ? "text" : "password"}
                   {...register("password")}
                   className="input input-bordered"
@@ -86,8 +85,8 @@ const Signup = () => {
               <div className="form-control mt-6 modal-action">
                 <button
                   className="my-modal-5 btn btn-base"
-                  onClick={handleSubmit(onSubmit)}
-                  href="/index"
+                  onClick={handleSubmit(signUp)}
+                  href="/profile"
                 >
                   Sign up
                 </button>
